@@ -64,7 +64,7 @@ function Subscribe() {
         Want to manage your practice more efficiently using AI-enabled
         technology?
       </h2>
-      <div className="mx-auto max-w-lg  bg-gray-200 rounded-xl">
+      <div className="mx-auto max-w-lg  bg-gray-200 rounded-lg">
         {showConfirmation && (
           <div className="p-3 text-center">
             <p className="text-design font-bold">
@@ -87,7 +87,7 @@ function Subscribe() {
           className="mb-0 space-y-4 rounded-lg pt-0 sm:p-6 lg:p-8"
           autoComplete="off"
         >
-          <div>
+          <div className="px-3 py-3">
             <label htmlFor="email" className="sr-only text-3xl">
               Email
             </label>
@@ -96,7 +96,7 @@ function Subscribe() {
               <input
                 type="email"
                 id="email"
-                className="w-full rounded-xl border-gray-400 p-2 pe-6 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-400 p-2 pe-6 text-sm shadow-sm"
                 placeholder="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -106,7 +106,7 @@ function Subscribe() {
             </div>
           </div>
 
-          <div>
+          <div className="px-3 py-3">
             <label
               htmlFor="phone"
               className="sr-only text-md lg:text-3xl xl:text-3xl"
@@ -118,7 +118,7 @@ function Subscribe() {
               <input
                 type="tel"
                 id="phone"
-                className="w-full rounded-xl border-gray-400 p-2 pe-6 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-400 p-2 pe-6 text-sm shadow-sm"
                 placeholder="Phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -128,12 +128,14 @@ function Subscribe() {
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="block w-full rounded-xl px-3 py-2 font-medium lg:font-bold xl:font-bold text-white  bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400"
-          >
-            Sign Up!
-          </button>
+          <div className="px-3 py-2">
+            <button
+              type="submit"
+              className="w-full rounded-md px-3 py-2 font-medium lg:font-bold xl:font-bold text-white  bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400"
+            >
+              Sign Up!
+            </button>
+          </div>
         </form>
       </div>
     </div>
