@@ -67,7 +67,7 @@ function Subscribe() {
           Let's Talk!
         </h1>
       </div>
-      <div className="mx-auto max-w-lg  bg-gray-200 rounded-lg mt-20">
+      <div className="mx-auto max-w-lg  bg-gray-200 rounded-lg mt-10">
         {showConfirmation && (
           <div className="p-3 text-center">
             <p className="text-design font-bold">
