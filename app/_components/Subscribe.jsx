@@ -55,15 +55,15 @@ function Subscribe() {
     }
   };
   return (
-    <div className="mx-auto max-w-screen-xl px-8 sm:px-4 sm:py-6 xs:px-4 xs:py-6 ">
-      <h1 className="text-center text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold sm:text-3xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+    <div className="flex flex-row xs:flex-col sm:flex-col md:flex-col sm:px-4 sm:py-6 xs:px-4 xs:py-6 items-center justify-center">
+      <h1 className="text-center text-3xl lg:text-5xl xl:text-5xl font-bold sm:text-3xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
         Let's Talk!
       </h1>
 
-      <h2 className="mx-auto mt-10 mb-10 xs:mt-7 xs:mb-7 sm:mt-7 sm:mb-7 max-w-screen-xl text-gray-500 text-xl md:text-2xl lg:text-2xl xl:text-3xl">
+      <h4 className="mx-auto mt-10 mb-10 xs:mt-7 xs:mb-7 sm:mt-7 sm:mb-7 text-gray-500 text-xl md:text-2xl lg:text-2xl xl:text-3xl">
         Want to manage your practice more efficiently using AI-enabled
         technology?
-      </h2>
+      </h4>
       <div className="mx-auto max-w-lg  bg-gray-200 rounded-lg">
         {showConfirmation && (
           <div className="p-3 text-center">
