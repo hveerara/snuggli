@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "SNUGGLI",
-  description: "Forging a deeper relationship with your pet",
+  description: "Smart Pet Care to forge a deeper relationship with your pet",
 };
 
 export default function RootLayout({ children }) {
