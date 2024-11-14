@@ -14,13 +14,13 @@ function Page() {
         width={500}
         height={500}
         className="bg-img"
-        priority
+        priority={true}
       />
       <div className="flex flex-col items-center justify-center pt-24">
-        <h3 className="text-3xl font-medium lg:font-bold lg:text-6xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+        <h3 className="text-3xl font-bold lg:font-bold lg:text-6xl text-center text-design">
           Smart Pet Care
         </h3>
-        <h4 className="mt-10 text-xl font-medium lg:font-medium lg:text-3xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+        <h4 className="mt-10 text-xl font-medium lg:font-medium lg:text-3xl text-center text-design">
           COMING SOON!
         </h4>
       </div>

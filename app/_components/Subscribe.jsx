@@ -1,12 +1,14 @@
 "use client";
+import { validateFullName, validatePhone } from "@/lib/util";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import { db } from "../../config/firebase";
 
-async function addDataToFireStore(email, phone) {
+async function addDataToFireStore(fullName, email, phone) {
   try {
     const docRef = await addDoc(collection(db, "participant"), {
+      fullName: fullName,
       email: email,
       phone: phone,
     });
@@ -17,19 +19,24 @@ async function addDataToFireStore(email, phone) {
 }
 
 function Subscribe() {
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [fullNameError, setFullNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
 
-  const validatePhone = (inputPhone) => {
-    const regex = /\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    return regex.test(inputPhone);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let validFullName = validateFullName(fullName);
+    if (!validFullName) {
+      setFullNameError("Enter valid full name!");
+    } else {
+      setFullName(fullName);
+    }
+
     if (!email || email.length === 0 || !isEmail(email)) {
       setEmailError("Enter valid Email!");
     } else {
@@ -43,54 +50,81 @@ function Subscribe() {
       setPhone(phone);
     }
 
-    if (validPhone) {
-      const added = addDataToFireStore(email, phone);
+    if (validFullName && validPhone) {
+      const added = addDataToFireStore(fullName, email, phone);
       if (added) {
+        setFullName("");
         setEmail("");
         setPhone("");
         setShowConfirmation(true);
+        setFullNameError("");
         setEmailError("");
         setPhoneError("");
       }
     }
   };
   return (
-    <div className="flex-1 flex-row xs:flex-col sm:flex-col md:flex-col sm:px-4 sm:py-6 xs:px-4 xs:py-6 items-center justify-center">
+    <div className="flex-1 flex-row xs:flex-col sm:flex-col md:flex-col sm:px-4 sm:py-6 xs:px-4 xs:py-6 items-center justify-center content-normal xl:content-center 2xl:content-center">
       <div>
-        <h4 className="mx-auto mt-10 mb-10 ml-5 mr-5 text-center xs:mt-7 xs:mb-7 sm:mt-7 sm:mb-7 text-gray-500 text-lg md:text-2xl lg:text-2xl xl:text-2xl">
+        <h4 className="mx-auto mt-10 mb-10 ml-5 mr-5 text-center xs:mt-3 xs:mb-3 sm:mt-3 sm:mb-3 text-black text-lg md:text-2xl lg:text-2xl xl:text-2xl">
           Want to manage your practice more efficiently using AI-enabled
           technology?
         </h4>
       </div>
       <div>
-        <h1 className="text-xl ml-10 mr-10 lg:text-3xl xl:text-3xl font-bold sm:text-3xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-center text-transparent bg-clip-text">
+        <h1 className="text-xl ml-10 mr-10 lg:text-3xl xl:text-3xl font-bold sm:text-3xl text-center text-black">
           Let's Talk!
         </h1>
       </div>
-      <div className="mx-auto max-w-lg  bg-gray-200 rounded-lg mt-10">
-        {showConfirmation && (
-          <div className="p-3 text-center">
-            <p className="text-design font-bold">
-              Thank you for signing up! We will contact you shortly.
-            </p>
-          </div>
-        )}
-        {emailError && (
-          <div className="p-3 text-center">
-            <p className="text-red-600">{emailError}</p>
-          </div>
-        )}
-        {phoneError && (
-          <div className="p-3 text-center">
-            <p className="text-red-600">{phoneError}</p>
-          </div>
-        )}
+      <div className="mx-auto max-w-xl bg-gray-300 rounded-xl mt-10 xs:mt-5 sm:mt-5 md:mt-5">
+        <div>
+          {showConfirmation && (
+            <div className="pt-3 text-center">
+              <p className="text-design font-bold">
+                Thank you for signing up! We will contact you shortly.
+              </p>
+            </div>
+          )}
+          {fullNameError && (
+            <div className="pt-3 text-center">
+              <p className="text-red-600 font-bold">{fullNameError}</p>
+            </div>
+          )}
+          {emailError && (
+            <div className="pt-3 text-center">
+              <p className="text-red-600 font-bold">{emailError}</p>
+            </div>
+          )}
+          {phoneError && (
+            <div className="pt-3 text-center">
+              <p className="text-red-600 font-bold">{phoneError}</p>
+            </div>
+          )}
+        </div>
         <form
           onSubmit={handleSubmit}
-          className="mb-0 space-y-4 pt-0 sm:p-6 lg:p-8"
+          className="mb-0 space-y-4 pt-3 p-10"
           autoComplete="off"
         >
-          <div className="px-3 py-3">
+          <div className="px-5 py-3 pt-6">
+            <label htmlFor="fullName" className="sr-only text-3xl">
+              Full Name
+            </label>
+
+            <div className="relative">
+              <input
+                type="text"
+                id="fullName"
+                className="w-full rounded-xl border-gray-400 p-2 pe-6 text-sm shadow-sm"
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                autoComplete="off"
+                required
+              />
+            </div>
+          </div>
+          <div className="px-5 py-3">
             <label htmlFor="email" className="sr-only text-3xl">
               Email
             </label>
@@ -99,7 +133,7 @@ function Subscribe() {
               <input
                 type="email"
                 id="email"
-                className="w-full rounded-lg border-gray-400 p-2 pe-6 text-sm shadow-sm"
+                className="w-full rounded-xl border-gray-400 p-2 pe-6 text-sm shadow-sm"
                 placeholder="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -108,20 +142,18 @@ function Subscribe() {
               />
             </div>
           </div>
-
-          <div className="px-3 py-3">
+          <div className="px-5 py-3">
             <label
               htmlFor="phone"
               className="sr-only text-md lg:text-3xl xl:text-3xl"
             >
               Phone
             </label>
-
             <div className="relative">
               <input
                 type="tel"
                 id="phone"
-                className="w-full rounded-lg border-gray-400 p-2 pe-6 text-sm shadow-sm"
+                className="w-full rounded-xl border-gray-400 p-2 pe-6 text-sm shadow-sm"
                 placeholder="Phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -130,11 +162,10 @@ function Subscribe() {
               />
             </div>
           </div>
-
-          <div className="px-3 py-2">
+          <div className="px-3 py-2 rounded-md flex justify-center items-center">
             <button
               type="submit"
-              className="w-full rounded-md px-3 py-2 font-medium lg:font-bold xl:font-bold text-white  bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400"
+              className="w-3/4 rounded-xl px-3 py-2 font-medium lg:font-bold xl:font-bold text-slate-800 bg-design"
             >
               Sign Up!
             </button>

@@ -14,7 +14,7 @@ function Header() {
     },
   ];
   return (
-    <div className="flex items-center justify-between p-4 shadow-sm shadow-design">
+    <div className="flex items-center justify-between p-4 shadow-sm shadow-design width: 100%">
       <div className="flex items-center gap-10">
         <Link href="/" className="flex flex-row items-left">
           <p className="font-bold pl-3 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
