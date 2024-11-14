@@ -17,10 +17,10 @@ function Page() {
         priority={true}
       />
       <div className="flex flex-col items-center justify-center pt-24">
-        <h3 className="text-3xl font-bold lg:font-bold lg:text-6xl text-center text-design">
+        <h3 className="text-3xl font-bold lg:font-bold lg:text-6xl text-center text-slate-100">
           Smart Pet Care
         </h3>
-        <h4 className="mt-10 text-xl font-medium lg:font-medium lg:text-3xl text-center text-design">
+        <h4 className="mt-10 text-xl font-medium lg:font-medium lg:text-3xl text-center text-slate-100">
           COMING SOON!
         </h4>
       </div>

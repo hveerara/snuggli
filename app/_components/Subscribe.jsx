@@ -165,7 +165,7 @@ function Subscribe() {
           <div className="px-3 py-2 rounded-md flex justify-center items-center">
             <button
               type="submit"
-              className="w-3/4 rounded-xl px-3 py-2 font-medium lg:font-bold xl:font-bold text-slate-800 bg-design"
+              className="w-3/4 rounded-xl px-3 py-2 font-medium lg:font-bold xl:font-bold text-slate-800 bg-design cursor-pointer"
             >
               Sign Up!
             </button>
