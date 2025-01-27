@@ -7,11 +7,11 @@ function Header() {
       name: "Home",
       path: "/",
     },
-    {
-      id: 2,
-      name: "Vets",
-      path: "/vets",
-    },
+    // {
+    //   id: 2,
+    //   name: "Vets",
+    //   path: "/vets",
+    // },
   ];
   return (
     <div className="flex items-center justify-between p-4 shadow-sm shadow-design width: 100%">
