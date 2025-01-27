@@ -3,8 +3,11 @@ import Header from "./_components/Header";
 import "./globals.css";
 
 export const metadata = {
-  title: "SNUGGLI",
-  description: "Smart Pet Care to forge a deeper relationship with your pet",
+  title: "Snuggli",
+  description: "Pet parenting made easy",
+  icons: {
+    icon: "favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {

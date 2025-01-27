@@ -9,7 +9,7 @@ function Page() {
       }}
     >
       <Image
-        src="/img/cat-dog.jpg"
+        src="/img/dogs-bg.png"
         alt="Cover Image"
         width={500}
         height={500}
