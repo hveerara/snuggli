@@ -3,7 +3,7 @@ import Header from "./_components/Header";
 import "./globals.css";
 
 export const metadata = {
-  title: "Snuggli",
+  title: "snuggli",
   description: "Pet parenting made easy",
   icons: {
     icon: "favicon.ico",

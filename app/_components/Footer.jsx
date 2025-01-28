@@ -7,13 +7,13 @@ function Footer() {
         <div className="flex items-center justify-center gap-10 sm:flex sm:justify-between sm:text-left">
           <p className="text-sm text-slate-600">
             <span className="block sm:inline">
-              {getCurrentYear()} - All rights reserved
+              {getCurrentYear()} - all rights reserved
             </span>
           </p>
         </div>
         <div>
           <p className="flex items-center gap-10 mt-4 text-sm text-slate-600 sm:order-first sm:mt-0">
-            &copy; SNUGGLI
+            &copy; snuggli
           </p>
         </div>
       </div>

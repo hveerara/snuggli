@@ -4,7 +4,7 @@ function Header() {
   const Menu = [
     {
       id: 1,
-      name: "Home",
+      name: "home",
       path: "/",
     },
     // {
@@ -18,7 +18,7 @@ function Header() {
       <div className="flex items-center gap-10">
         <Link href="/" className="flex flex-row items-left">
           <p className="font-bold pl-3 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
-            SNUGGLI
+            snuggli
           </p>
         </Link>
         <div className="flex gap-8 flex-row items-center justify-center">
