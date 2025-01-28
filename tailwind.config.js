@@ -20,7 +20,7 @@ module.exports = {
         bodyColor: "#94A3B8",
         lightText: "#c4cfde",
         boxBg: "linear-gradient(145deg, #1e2024, #23272b)",
-        design: "#5bb450",
+        design: "#4cc2c4",
         background: "#222222",
         foreground: "hsl(var(--foreground))",
         card: {
